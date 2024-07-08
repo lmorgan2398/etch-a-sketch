@@ -4,4 +4,7 @@ for (i = 1; i <= 256; i++) {
     gridSquare.classList.add(`grid-square`);
     gridSquare.classList.add(`square${i}`);
     gridContainer.appendChild(gridSquare);
+    gridSquare.addEventListener('mouseover', () => {
+        gridSquare.style.backgroundColor = 'black';
+    });
 }
