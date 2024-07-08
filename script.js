@@ -1,9 +1,11 @@
 let gridContainer = document.querySelector('.grid-container');
+gridContainer.style.width = '800px';
+gridContainer.style.height = '800px';
 for (i = 1; i <= (16 ** 2); i++) {
     let gridSquare = document.createElement('div');
     gridSquare.classList.add(`grid-square`);
     gridSquare.classList.add(`square${i}`);
-    let squareSize = (600 / 16);
+    let squareSize = (800 / 16);
     gridSquare.style.width = `${squareSize}px`;
     gridSquare.style.height = `${squareSize}px`;
     gridContainer.appendChild(gridSquare);
@@ -34,7 +36,7 @@ gridSizeButton.addEventListener('click', () => {
             let gridSquare = document.createElement('div');
             gridSquare.classList.add(`grid-square`);
             gridSquare.classList.add(`square${i}`);
-            let squareSize = (600 / newGridSize);
+            let squareSize = (800 / newGridSize).toFixed(100);
             gridSquare.style.width = `${squareSize}px`;
             gridSquare.style.height = `${squareSize}px`;
             gridContainer.appendChild(gridSquare);
