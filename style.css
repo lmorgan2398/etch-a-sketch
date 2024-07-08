@@ -1,7 +1,17 @@
+@font-face {
+    font-family: 'Pixelify';
+    src: url(./Pixelify_Sans/PixelifySans-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: 'Pixelify';
+}
+
 html {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: lightyellow;
 }
 
 .grid-size-button-container {
@@ -10,17 +20,45 @@ html {
     margin-top: 50px;
 }
 
+.grid-size-button {
+    background-color: darkred;
+}
+
+.etch-a-sketch {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    width: 1000px;
+    height: 1000px;
+    border: 4px solid darkred;
+    padding-bottom: 50px;
+}
+
+.etch-a-sketch-label {
+    margin: 20px auto 30px;
+    font-size: 64px;
+    color: gold;
+    font-weight: 500;
+}
+
 .grid-container {
-    border: 2px solid black;
+    border: 2px solid darkred;
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     padding: 0px;
     background-color: black;
+    margin: 0px;
+}
+
+.etch-a-sketch-buttons-container {
+    margin: 20px 0px;
+
 }
 
 .grid-square {
     box-sizing: border-box;
-    border: 2px solid black;
     background-color: white;
 }

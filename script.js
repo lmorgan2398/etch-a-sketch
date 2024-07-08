@@ -18,8 +18,6 @@ let gridSizeButton = document.querySelector('.grid-size-button');
 gridSizeButton.addEventListener('click', () => {
     let newGridSizePrompt = prompt('Enter a whole number between 10-100 to change the number of squares per row.');
     let newGridSize = Number(newGridSizePrompt.slice(0));
-    console.log(newGridSize);
-    console.log(parseInt(newGridSize));
     if ((newGridSizePrompt === '') || isNaN(newGridSize)) {
         alert('Invalid grid size: please enter a number.')
     } else if (newGridSize !== parseInt(newGridSize)) {
@@ -44,5 +42,6 @@ gridSizeButton.addEventListener('click', () => {
                 gridSquare.style.backgroundColor = 'black';
             });
         }
+        gridSizeButton.textContent = `${newGridSize}`;
     }
 });
