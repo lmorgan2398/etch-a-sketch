@@ -14,11 +14,12 @@ for (i = 1; i <= (16 ** 2); i++) {
 
 let gridSizeButton = document.querySelector('.grid-size-button');
 gridSizeButton.addEventListener('click', () => {
-    let newGridSize = Number(prompt('Enter a whole number between 10-100 to change the number of squares per row.'));
-    console.log(newGridSize);
+    let newGridSizePrompt = prompt('Enter a whole number between 10-100 to change the number of squares per row.');
+    let newGridSize = Number(newGridSizePrompt.slice(0));
+    console.log(newGridSizePrompt);
     console.log(typeof(newGridSize));
-    if (typeof (newGridSize) !== 'number') {
-        alert('Invalid grid size: only numbers are accepted.')
+    if ((newGridSizePrompt === '') || isNaN(newGridSize)) {
+        alert('Invalid grid size: please enter a number.')
     } else if (newGridSize < 10) {
         alert('Invalid grid size: number cannot be less than 10.')
     } else if (newGridSize > 100) {
