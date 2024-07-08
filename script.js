@@ -68,16 +68,16 @@ for (i = 1; i <= (16 ** 2); i++) {
     gridContainer.appendChild(gridSquare);
     gridSquare.addEventListener('mouseover', () => {
         if (layer === 'back') {
-            if (gridSquare.style.backgroundColor === 'white') {
-                if (gradientType === 'gradient') {
-                    if (opacity < 1) {
-                        opacity += (0.1);
-                        console.log(opacity);
-                        gridSquare.style.opacity = opacity;
-                    };
-                } else if (gradientType === 'solid') {
-                    gridSquare.style.opacity = 1;
+            if (gradientType === 'gradient') {
+                if (gridSquare.style.opacity < 1) {
+                    opacity += (0.1);
+                    console.log(opacity);
+                    gridSquare.style.opacity = opacity;
                 };
+            } else if (gradientType === 'solid') {
+                gridSquare.style.opacity = 1;
+            };
+            if (gridSquare.style.backgroundColor === 'white') {
                 if (gridColor === 'black') {
                     gridSquare.style.backgroundColor = 'black';
                 } else if (gridColor === 'rgb') {
@@ -141,16 +141,16 @@ gridSizeButton.addEventListener('click', () => {
             gridContainer.appendChild(gridSquare);
             gridSquare.addEventListener('mouseover', () => {
                 if (layer === 'back') {
-                    if (gridSquare.style.backgroundColor === 'white') {
-                        if (gradientType === 'gradient') {
-                            if (opacity < 1) {
-                                opacity += (0.1);
-                                console.log(opacity);
-                                gridSquare.style.opacity = opacity;
-                            };
-                        } else if (gradientType === 'solid') {
-                            gridSquare.style.opacity = 1;
+                    if (gradientType === 'gradient') {
+                        if (gridSquare.style.opacity < 1) {
+                            opacity += (0.1);
+                            console.log(opacity);
+                            gridSquare.style.opacity = opacity;
                         };
+                    } else if (gradientType === 'solid') {
+                        gridSquare.style.opacity = 1;
+                    };
+                    if (gridSquare.style.backgroundColor === 'white') {
                         if (gridColor === 'black') {
                             gridSquare.style.backgroundColor = 'black';
                         } else if (gridColor === 'rgb') {
