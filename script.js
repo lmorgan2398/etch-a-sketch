@@ -6,14 +6,37 @@ let colorButton = document.querySelector('.color-button');
 let blackButton = document.querySelector('.black-button');
 
 let gridColor = 'black';
+blackButton.style.display = 'none';
 
 colorButton.addEventListener ('click', () => {
     gridColor = 'rgb';
+    colorButton.style.display = 'none';
+    blackButton.style.display = 'block';
 });
 
 blackButton.addEventListener ('click', () => {
     gridColor = 'black';
+    blackButton.style.display = 'none';
+    colorButton.style.display = 'block';
 });
+
+let gradientButton = document.querySelector('.gradient-button');
+let solidButton = document.querySelector('.solid-button');
+
+let gradientType = 'solid'
+solidButton.style.display = 'none'
+
+gradientButton.addEventListener ('click', () => {
+    gradientType = 'gradient';
+    gradientButton.style.display = 'none';
+    solidButton.style.display = 'block';
+});
+
+solidButton.addEventListener ('click', () => {
+    gradientType = 'solid';
+    solidButton.style.display = 'none';
+    gradientButton.style.display = 'block';
+})
 
 for (i = 1; i <= (16 ** 2); i++) {
     let gridSquare = document.createElement('div');
@@ -26,12 +49,14 @@ for (i = 1; i <= (16 ** 2); i++) {
     let opacity = (0);
     gridContainer.appendChild(gridSquare);
     gridSquare.addEventListener('mouseover', () => {
-        if (gridSquare.style.backgroundColor) {
+        if (gradientType === 'gradient') {
             if (opacity < 1) {
                 opacity += (0.1);
                 console.log(opacity);
                 gridSquare.style.opacity = opacity;
             };
+        } else if (gradientType === 'solid') {
+            gridSquare.style.opacity = 1;
         };
         if (gridColor === 'black') {
             gridSquare.style.backgroundColor = 'black';
@@ -73,12 +98,14 @@ gridSizeButton.addEventListener('click', () => {
             let opacity = (0);
             gridContainer.appendChild(gridSquare);
             gridSquare.addEventListener('mouseover', () => {
-                if (gridSquare.style.backgroundColor) {
+                if (gradientType === 'gradient') {
                     if (opacity < 1) {
                         opacity += (0.1);
                         console.log(opacity);
                         gridSquare.style.opacity = opacity;
                     };
+                } else if (gradientType === 'solid') {
+                    gridSquare.style.opacity = 1;
                 };
                 if (gridColor === 'black') {
                     gridSquare.style.backgroundColor = 'black';
