@@ -1,6 +1,20 @@
 let gridContainer = document.querySelector('.grid-container');
 gridContainer.style.width = '800px';
 gridContainer.style.height = '800px';
+
+let colorButton = document.querySelector('.color-button');
+let blackButton = document.querySelector('.black-button');
+
+let gridColor = 'black';
+
+colorButton.addEventListener ('click', () => {
+    gridColor = 'rgb';
+});
+
+blackButton.addEventListener ('click', () => {
+    gridColor = 'black';
+});
+
 for (i = 1; i <= (16 ** 2); i++) {
     let gridSquare = document.createElement('div');
     gridSquare.classList.add(`grid-square`);
@@ -8,11 +22,29 @@ for (i = 1; i <= (16 ** 2); i++) {
     let squareSize = (800 / 16);
     gridSquare.style.width = `${squareSize}px`;
     gridSquare.style.height = `${squareSize}px`;
+    gridSquare.style.backgroundColor = 'white';
+    let opacity = (0);
     gridContainer.appendChild(gridSquare);
     gridSquare.addEventListener('mouseover', () => {
-        gridSquare.style.backgroundColor = 'black';
+        if (gridSquare.style.backgroundColor) {
+            if (opacity < 1) {
+                opacity += (0.1);
+                console.log(opacity);
+                gridSquare.style.opacity = opacity;
+            };
+        };
+        if (gridColor === 'black') {
+            gridSquare.style.backgroundColor = 'black';
+        } else if (gridColor === 'rgb') {
+            let randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+            let r = randomBetween(0, 255);
+            let g = randomBetween(0, 255);
+            let b = randomBetween(0, 255);
+            let rgb = `rgb(${r},${g},${b})`;
+            gridSquare.style.backgroundColor = rgb;
+        }
     });
-}
+};
 
 let gridSizeButton = document.querySelector('.grid-size-button');
 gridSizeButton.addEventListener('click', () => {
@@ -37,11 +69,29 @@ gridSizeButton.addEventListener('click', () => {
             let squareSize = (800 / newGridSize).toFixed(100);
             gridSquare.style.width = `${squareSize}px`;
             gridSquare.style.height = `${squareSize}px`;
+            gridSquare.style.backgroundColor = 'white';
+            let opacity = (0);
             gridContainer.appendChild(gridSquare);
             gridSquare.addEventListener('mouseover', () => {
-                gridSquare.style.backgroundColor = 'black';
+                if (gridSquare.style.backgroundColor) {
+                    if (opacity < 1) {
+                        opacity += (0.1);
+                        console.log(opacity);
+                        gridSquare.style.opacity = opacity;
+                    };
+                };
+                if (gridColor === 'black') {
+                    gridSquare.style.backgroundColor = 'black';
+                } else if (gridColor === 'rgb') {
+                    let randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+                    let r = randomBetween(0, 255);
+                    let g = randomBetween(0, 255);
+                    let b = randomBetween(0, 255);
+                    let rgb = `rgb(${r},${g},${b})`;
+                    gridSquare.style.backgroundColor = rgb;
+                }
             });
-        }
+        };
+    };
         gridSizeButton.textContent = `${newGridSize}`;
-    }
 });
