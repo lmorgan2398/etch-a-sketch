@@ -4,18 +4,22 @@ html {
     align-items: center;
 }
 
+.grid-size-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
 .grid-container {
     width: 600px;
     height: 600px;
-    border: 1px solid black;
-    margin-top: 300px;
+    border: 1px solid black; 
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .grid-square {
-    width: 37.5px;
-    height: 37.5px;
     box-sizing: border-box;
     border: 1px solid black;
 }
