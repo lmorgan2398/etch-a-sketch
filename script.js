@@ -20,6 +20,24 @@ blackButton.addEventListener ('click', () => {
     colorButton.style.display = 'block';
 });
 
+let backButton = document.querySelector('.back-button');
+let frontButton = document.querySelector('.front-button');
+
+let layer = 'front';
+frontButton.style.display = 'none';
+
+backButton.addEventListener('click', () => {
+    layer = 'back';
+    backButton.style.display = 'none';
+    frontButton.style.display = 'block';
+});
+
+frontButton.addEventListener('click', () => {
+    layer = 'front';
+    frontButton.style.display = 'none';
+    backButton.style.display = 'block';
+});
+
 let gradientButton = document.querySelector('.gradient-button');
 let solidButton = document.querySelector('.solid-button');
 
@@ -49,25 +67,49 @@ for (i = 1; i <= (16 ** 2); i++) {
     let opacity = (0);
     gridContainer.appendChild(gridSquare);
     gridSquare.addEventListener('mouseover', () => {
-        if (gradientType === 'gradient') {
-            if (opacity < 1) {
-                opacity += (0.1);
-                console.log(opacity);
-                gridSquare.style.opacity = opacity;
+        if (layer === 'back') {
+            if (gridSquare.style.backgroundColor === 'white') {
+                if (gradientType === 'gradient') {
+                    if (opacity < 1) {
+                        opacity += (0.1);
+                        console.log(opacity);
+                        gridSquare.style.opacity = opacity;
+                    };
+                } else if (gradientType === 'solid') {
+                    gridSquare.style.opacity = 1;
+                };
+                if (gridColor === 'black') {
+                    gridSquare.style.backgroundColor = 'black';
+                } else if (gridColor === 'rgb') {
+                    let randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+                    let r = randomBetween(0, 255);
+                    let g = randomBetween(0, 255);
+                    let b = randomBetween(0, 255);
+                    let rgb = `rgb(${r},${g},${b})`;
+                    gridSquare.style.backgroundColor = rgb;
+                };
             };
-        } else if (gradientType === 'solid') {
-            gridSquare.style.opacity = 1;
+        } else if (layer === 'front') {
+            if (gradientType === 'gradient') {
+                if (opacity < 1) {
+                    opacity += (0.1);
+                    console.log(opacity);
+                    gridSquare.style.opacity = opacity;
+                };
+            } else if (gradientType === 'solid') {
+                gridSquare.style.opacity = 1;
+            };
+            if (gridColor === 'black') {
+                gridSquare.style.backgroundColor = 'black';
+            } else if (gridColor === 'rgb') {
+                let randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+                let r = randomBetween(0, 255);
+                let g = randomBetween(0, 255);
+                let b = randomBetween(0, 255);
+                let rgb = `rgb(${r},${g},${b})`;
+                gridSquare.style.backgroundColor = rgb;
+            };
         };
-        if (gridColor === 'black') {
-            gridSquare.style.backgroundColor = 'black';
-        } else if (gridColor === 'rgb') {
-            let randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-            let r = randomBetween(0, 255);
-            let g = randomBetween(0, 255);
-            let b = randomBetween(0, 255);
-            let rgb = `rgb(${r},${g},${b})`;
-            gridSquare.style.backgroundColor = rgb;
-        }
     });
 };
 
@@ -98,27 +140,51 @@ gridSizeButton.addEventListener('click', () => {
             let opacity = (0);
             gridContainer.appendChild(gridSquare);
             gridSquare.addEventListener('mouseover', () => {
-                if (gradientType === 'gradient') {
-                    if (opacity < 1) {
-                        opacity += (0.1);
-                        console.log(opacity);
-                        gridSquare.style.opacity = opacity;
+                if (layer === 'back') {
+                    if (gridSquare.style.backgroundColor === 'white') {
+                        if (gradientType === 'gradient') {
+                            if (opacity < 1) {
+                                opacity += (0.1);
+                                console.log(opacity);
+                                gridSquare.style.opacity = opacity;
+                            };
+                        } else if (gradientType === 'solid') {
+                            gridSquare.style.opacity = 1;
+                        };
+                        if (gridColor === 'black') {
+                            gridSquare.style.backgroundColor = 'black';
+                        } else if (gridColor === 'rgb') {
+                            let randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+                            let r = randomBetween(0, 255);
+                            let g = randomBetween(0, 255);
+                            let b = randomBetween(0, 255);
+                            let rgb = `rgb(${r},${g},${b})`;
+                            gridSquare.style.backgroundColor = rgb;
+                        };
                     };
-                } else if (gradientType === 'solid') {
-                    gridSquare.style.opacity = 1;
+                } else if (layer === 'front') {
+                    if (gradientType === 'gradient') {
+                        if (opacity < 1) {
+                            opacity += (0.1);
+                            console.log(opacity);
+                            gridSquare.style.opacity = opacity;
+                        };
+                    } else if (gradientType === 'solid') {
+                        gridSquare.style.opacity = 1;
+                    };
+                    if (gridColor === 'black') {
+                        gridSquare.style.backgroundColor = 'black';
+                    } else if (gridColor === 'rgb') {
+                        let randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+                        let r = randomBetween(0, 255);
+                        let g = randomBetween(0, 255);
+                        let b = randomBetween(0, 255);
+                        let rgb = `rgb(${r},${g},${b})`;
+                        gridSquare.style.backgroundColor = rgb;
+                    };
                 };
-                if (gridColor === 'black') {
-                    gridSquare.style.backgroundColor = 'black';
-                } else if (gridColor === 'rgb') {
-                    let randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-                    let r = randomBetween(0, 255);
-                    let g = randomBetween(0, 255);
-                    let b = randomBetween(0, 255);
-                    let rgb = `rgb(${r},${g},${b})`;
-                    gridSquare.style.backgroundColor = rgb;
-                }
             });
         };
     };
-        gridSizeButton.textContent = `${newGridSize}`;
+    gridSizeButton.textContent = `${newGridSize}`;
 });
