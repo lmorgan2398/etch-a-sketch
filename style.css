@@ -14,6 +14,27 @@ html {
     background-color: lightyellow;
 }
 
+.top-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 125px;
+}
+
+.reset {
+    width: 60px;
+    height: 60px;
+    text-wrap: wrap;
+    margin-top: 12px;
+    background-color: darkred;
+    color: gold;
+}
+
+.credit {
+    color: darkred;
+    margin-top: 10px;
+}
+
 .grid-size-button-container {
     display: flex;
     justify-content: center;

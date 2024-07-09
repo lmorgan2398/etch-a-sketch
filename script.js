@@ -2,6 +2,18 @@ let gridContainer = document.querySelector('.grid-container');
 gridContainer.style.width = '800px';
 gridContainer.style.height = '800px';
 
+let resetButton = document.querySelector('.reset');
+resetButton.addEventListener('click', () => {
+    let allGrids = document.getElementsByClassName('grid-square');
+    let allGridSquares = Array.from(allGrids);
+    allGridSquares.forEach(function(gridSquare) {
+        gridSquare.style.backgroundColor = 'white';
+        gridSquare.classList.remove('front');
+        gridSquare.classList.remove('back');
+        gridSquare.style.opacity = (0);
+    });
+});
+
 let colorButton = document.querySelector('.color-button');
 let blackButton = document.querySelector('.black-button');
 
