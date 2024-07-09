@@ -18,7 +18,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 125px;
+    gap: 110px;
 }
 
 .reset {
@@ -32,7 +32,7 @@ html {
 
 .credit {
     color: darkred;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .grid-size-button-container {
