@@ -83,4 +83,14 @@ html {
 
 .grid-square {
     box-sizing: border-box;
+    z-index: 0;
+}
+
+.back {
+    z-index: 1;
+}
+
+.front,
+.front.back {
+    z-index: 2;
 }

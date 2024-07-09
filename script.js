@@ -68,16 +68,17 @@ for (i = 1; i <= (16 ** 2); i++) {
     gridContainer.appendChild(gridSquare);
     gridSquare.addEventListener('mouseover', () => {
         if (layer === 'back') {
-            if (gradientType === 'gradient') {
-                if (gridSquare.style.opacity < 1) {
-                    opacity += (0.1);
-                    console.log(opacity);
-                    gridSquare.style.opacity = opacity;
+            gridSquare.classList.add(`back`);
+            if (gridSquare.classList.contains('front') === false) {
+                if (gradientType === 'gradient') {
+                    if (gridSquare.style.opacity < 1) {
+                        opacity += (0.1);
+                        console.log(opacity);
+                        gridSquare.style.opacity = opacity;
+                    };
+                } else if (gradientType === 'solid') {
+                    gridSquare.style.opacity = 1;
                 };
-            } else if (gradientType === 'solid') {
-                gridSquare.style.opacity = 1;
-            };
-            if (gridSquare.style.backgroundColor === 'white') {
                 if (gridColor === 'black') {
                     gridSquare.style.backgroundColor = 'black';
                 } else if (gridColor === 'rgb') {
@@ -90,8 +91,14 @@ for (i = 1; i <= (16 ** 2); i++) {
                 };
             };
         } else if (layer === 'front') {
+            if (gridSquare.classList.contains('front') === false) {
+                opacity = (0);
+                gridSquare.style.opacity = opacity;
+                console.log('hello');
+            };
+            gridSquare.classList.add('front');
             if (gradientType === 'gradient') {
-                if (opacity < 1) {
+                if (gridSquare.style.opacity < 1) {
                     opacity += (0.1);
                     console.log(opacity);
                     gridSquare.style.opacity = opacity;
@@ -141,16 +148,17 @@ gridSizeButton.addEventListener('click', () => {
             gridContainer.appendChild(gridSquare);
             gridSquare.addEventListener('mouseover', () => {
                 if (layer === 'back') {
-                    if (gradientType === 'gradient') {
-                        if (gridSquare.style.opacity < 1) {
-                            opacity += (0.1);
-                            console.log(opacity);
-                            gridSquare.style.opacity = opacity;
+                    gridSquare.classList.add(`back`);
+                    if (gridSquare.classList.contains('front') === false) {
+                        if (gradientType === 'gradient') {
+                            if (gridSquare.style.opacity < 1) {
+                                opacity += (0.1);
+                                console.log(opacity);
+                                gridSquare.style.opacity = opacity;
+                            };
+                        } else if (gradientType === 'solid') {
+                            gridSquare.style.opacity = 1;
                         };
-                    } else if (gradientType === 'solid') {
-                        gridSquare.style.opacity = 1;
-                    };
-                    if (gridSquare.style.backgroundColor === 'white') {
                         if (gridColor === 'black') {
                             gridSquare.style.backgroundColor = 'black';
                         } else if (gridColor === 'rgb') {
@@ -163,8 +171,14 @@ gridSizeButton.addEventListener('click', () => {
                         };
                     };
                 } else if (layer === 'front') {
+                    if (gridSquare.classList.contains('front') === false) {
+                        opacity = (0);
+                        gridSquare.style.opacity = opacity;
+                        console.log('hello');
+                    };
+                    gridSquare.classList.add('front');
                     if (gradientType === 'gradient') {
-                        if (opacity < 1) {
+                        if (gridSquare.style.opacity < 1) {
                             opacity += (0.1);
                             console.log(opacity);
                             gridSquare.style.opacity = opacity;
